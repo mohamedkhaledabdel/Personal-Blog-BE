@@ -3,6 +3,7 @@ import './routes/index';
 import routes from './routes';
 import * as database from './database';
 import colors from 'colors';
+import bodyParser from 'body-parser';
 
 const app = express();
 const port = 3000;
@@ -18,4 +19,6 @@ database
   app.listen(port, () => {
     return console.log(`Express is listening at http://localhost:${port}`);
   });
+  app.use(bodyParser.json())
   app.use(routes)
+  
